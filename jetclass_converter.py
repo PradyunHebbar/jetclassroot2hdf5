@@ -85,8 +85,8 @@ def main():
     test_Higgs_set = glob.glob(os.path.join(path,'test*',dict_files[label_signal]))  
     test_Background_set = glob.glob(os.path.join(path,'test*',dict_files[label_bkg]))
 
-    val_Higgs_set = glob.glob(os.path.join(path,'val*','val*',dict_files[label_signal]))  
-    val_Background_set = glob.glob(os.path.join(path,'val*','val*',dict_files[label_bkg]))
+    val_Higgs_set = glob.glob(os.path.join(path,'val*',dict_files[label_signal]))  
+    val_Background_set = glob.glob(os.path.join(path,'val*',dict_files[label_bkg]))
 
     def concat(glob_set_Higgs, glob_set_Background, number_of_signal_files): 
         
