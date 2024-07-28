@@ -17,9 +17,8 @@ The JetClass dataset is a large-scale dataset for deep learning in jet physics. 
 
 ## Requirements
 
-- Python 3.x
-- uproot
-- awkward
+- uproot==5.2.2
+- awkward==2.6.1
 - vector
 - h5py
 - numpy
@@ -28,8 +27,8 @@ The JetClass dataset is a large-scale dataset for deep learning in jet physics. 
 
 1. Clone this repository:
    ```
-   git clone https://github.com/yourusername/jetclass-converter.git
-   cd jetclass-converter
+   git clone https://github.com/PradyunHebbar/jetclassroot2hdf5.git
+   cd jetclassroot2hdf5
    ```
 
 2. Install the required packages:
@@ -42,7 +41,7 @@ The JetClass dataset is a large-scale dataset for deep learning in jet physics. 
    - `n_signal_files_in_test`: Number of signal files to use for testing
    - `n_signal_files_in_valid`: Number of signal files to use for validation
    - `shuffle`: Set to True if you want to shuffle the data
-   - `label_signal`: Select the signal event type (1-9)
+   - `label_signal`: Select the signal event type (1-9) ['label_H->bb', 'label_H->cc', 'label_H->gg', 'label_H->4q','label_H->qql', 'label_Z->qq', 'label_W->qq', 'label_T->bqq']
    - `num_particles`: Maximum number of particles per event
    - `path`: Path to the JetClass dataset
 
@@ -72,7 +71,7 @@ For more information about the dataset, please refer to the [arXiv paper](https:
 
 ## Citation
 
-If you use this code or the JetClass dataset in your research, please cite:
+If you use the JetClass dataset in your research, please cite:
 
 ```
 @dataset{JetClass,
