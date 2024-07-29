@@ -1,10 +1,10 @@
-# JetClass Dataset File .root to .h5 converter
+# JetClass Dataset Files converter .root to .h5 
 
 This project contains a Python script for converting the JetClass dataset from .root format to .h5 format, making it suitable for neural network model training.
 
 ## Description
 
-The JetClass dataset is a large-scale dataset for deep learning in jet physics. This script allows users to convert the original .root files into .h5 files, with options to select specific signal events, specify the number of files to process, and control the maximum number of particles per event.
+The JetClass dataset is a large-scale dataset for deep learning in jet physics(https://zenodo.org/records/6619768). This script allows users to convert the original .root files into .h5 files, with options to select specific signal events, specify the number of files to process, and control the maximum number of particles per event.
 
 ## Features
 
@@ -63,7 +63,7 @@ The generated .h5 files contain the following datasets:
 5. `Nobj`: Number of particles per event
 6. `Jet`: Jet 4-momentum
 
-   *This script meant to be used for the PELICAN architecture (https://github.com/abogatskiy/PELICAN)
+   *This script was written to be used for the PELICAN architecture (https://github.com/abogatskiy/PELICAN)
 
 ## Dataset Information
 
