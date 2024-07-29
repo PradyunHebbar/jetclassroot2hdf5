@@ -7,8 +7,8 @@ import h5py
 import numpy as np
 
 def main():
-    
-#Change initial hyper-paramters, the file-path to the required object and "label" definition
+--------------------------------------------------------------------------------------------------  
+#Change these paramters
     n_signal_files_in_train = 5  #10 in each train** folder, each file has 100k events
     n_signal_files_in_test = 2
     n_signal_files_in_valid = 2
@@ -18,7 +18,11 @@ def main():
     #'label_H4q','label_Hqql', 'label_Zqq', 'label_Wqq', 'label_Tbqq', 'label_Tbl'
     num_particles=128
     path = "/raven/u/phebbar/Work/PELICAN_Btag/b_datasets"  #path to jetclass dataset 
-    
+----------------------------------------------------------------------------------------------------
+
+
+
+
     #Dictionaries
     #dict_labels= {0:'label_QCD', 1:'label_Hbb', 2:'label_Hcc', 3:'label_Hgg', 4:'label_H4q',5:'label_Hqql', 6:'label_Zqq', 7:'label_Wqq', 8:'label_Tbqq', 9:'label_Tbl'}
     #dict_add = {0:'part_deta',1:'part_dphi',2:'part_d0val',3:'part_d0err',4:'part_dzval',5:'part_dzerr',6:'part_charge',7:'part_isChargedHadron',8:'part_isNeutralHadron',9:'part_isPhoton',10:'part_isElectron',11:'part_isMuon'}
