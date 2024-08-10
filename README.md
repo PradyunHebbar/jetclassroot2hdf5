@@ -1,10 +1,10 @@
-# JetClass Dataset Files converter .root to .h5 
+# JetClass Dataset Converter (.root to .h5)
 
-This project contains a Python script for converting the JetClass dataset from .root format to .h5 format, making it suitable for neural network model training.
+This project contains Python scripts for converting the JetClass dataset from .root format to .h5 format, making it suitable for neural network model training.
 
 ## Description
 
-The JetClass dataset is a large-scale dataset for deep learning in jet physics(https://zenodo.org/records/6619768). This script allows users to convert the original .root files into .h5 files, with options to select specific signal events, specify the number of files to process, and control the maximum number of particles per event.
+The JetClass dataset is a large-scale dataset for deep learning in jet physics ([Zenodo link](https://zenodo.org/records/6619768)). This script allows users to convert the original .root files into .h5 files, with options to select specific signal events, specify the number of files to process, and control the maximum number of particles per event.
 
 ## Features
 
@@ -14,6 +14,7 @@ The JetClass dataset is a large-scale dataset for deep learning in jet physics(h
 - Control the maximum number of particles per event
 - Option to shuffle the data
 - Zero-padding for events with fewer particles
+- Multiprocessing support for improved performance
 
 ## Requirements
 
@@ -23,38 +24,49 @@ The JetClass dataset is a large-scale dataset for deep learning in jet physics(h
 - h5py
 - numpy
 
-## Usage
+## Installation
 
 1. Clone this repository:
    ```
-   git clone https://github.com/PradyunHebbar/jetclassroot2hdf5.git
+   git clone https://github.com/yourusername/jetclassroot2hdf5.git
    cd jetclassroot2hdf5
    ```
 
 2. Install the required packages:
    ```
-   pip install uproot awkward vector h5py numpy
+   pip install -r requirements.txt
    ```
 
-3. Modify the following parameters in the `main()` function as needed:
-   - `n_signal_files_in_train`: Number of signal files to use for training (from train folders)
-   - `n_signal_files_in_test`: Number of signal files to use for testing (from test_20M folder)
-   - `n_signal_files_in_valid`: Number of signal files to use for validation (from val_5M folder)
-   - `shuffle`: Set to True if you want to shuffle the data
-   - `label_signal`: Select the signal event type (1-9) ['label_H->bb', 'label_H->cc', 'label_H->gg', 'label_H->4q','label_H->qql', 'label_Z->qq', 'label_W->qq', 'label_T->bqq']
-   - `num_particles`: Maximum number of particles per event
-   - `path`: Path to the JetClass dataset
+## Usage
 
-4. Run the script:
-   ```
-   python jetclass_converter.py
-   ```
+Run the script using the following command:
 
-5. The script will generate three .h5 files: `train.h5`, `test.h5`, and `valid.h5`.
+```
+python main.py [arguments]
+```
 
-## Output Format
+Available arguments:
 
-The generated .h5 files contain the following datasets:
+- `--n_signal_files_in_train`: Number of signal files to use for training (default: 5)
+- `--n_signal_files_in_test`: Number of signal files to use for testing (default: 2)
+- `--n_signal_files_in_valid`: Number of signal files to use for validation (default: 2)
+- `--shuffle`: Whether to shuffle the dataset. Use 'true' or 'false' (default: 'false')
+- `--label_signal`: Select the signal event type (1-9) (default: 1)
+- `--label_bkg`: Select the background event type (0-9) (default: 0)
+- `--num_particles`: Maximum number of particles per event (default: 128)
+- `--path`: Path to the JetClass dataset (default: "/raven/u/phebbar/Work/PELICAN_Btag/b_datasets")
+
+Example usage:
+
+```
+python main.py --n_signal_files_in_train 10 --n_signal_files_in_test 3 --n_signal_files_in_valid 3 --shuffle true --label_signal 2 --num_particles 256
+```
+
+This command will run the conversion process with 10 signal files for training, 3 for testing, 3 for validation, shuffle the data, use label 2 for signal events, and set the maximum number of particles to 256.
+
+## Output
+
+The script will generate three .h5 files: `train.h5`, `test.h5`, and `valid.h5`. Each file contains the following datasets:
 
 1. `Pmu`: 4-momentum of particles per event (E, px, py, pz)
 2. `Cyl`: Cylindrical coordinates of particles per event (Energy, pt, eta, phi)
@@ -62,8 +74,6 @@ The generated .h5 files contain the following datasets:
 4. `scalars`: Additional information per particle as provided by JetClass
 5. `Nobj`: Number of particles per event
 6. `Jet`: Jet 4-momentum
-
-   *This script was written to be used for the PELICAN architecture (https://github.com/abogatskiy/PELICAN)
 
 ## Dataset Information
 
@@ -88,11 +98,9 @@ If you use the JetClass dataset in your research, please cite:
 }
 ```
 
-
-
-
-
 ## Contact
+
+For any questions or issues, please open an issue on this GitHub repository or contact:
 
 Pradyun Hebbar
 pradyun.hebbar@gmail.com
