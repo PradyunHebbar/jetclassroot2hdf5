@@ -14,9 +14,9 @@ class JetClassConverter:
                            8:"TTBar*", 9:"TTBarLep*"}
 
     def get_file_sets(self):
-        train_Higgs_set = glob.glob(os.path.join(self.config.path, 'train*', 
+        train_Higgs_set = glob.glob(os.path.join(self.config.path,  
                                     self.dict_files[self.config.label_signal]))
-        train_Background_set = glob.glob(os.path.join(self.config.path, 'train*', 
+        train_Background_set = glob.glob(os.path.join(self.config.path,  
                                          self.dict_files[self.config.label_bkg]))
         test_Higgs_set = glob.glob(os.path.join(self.config.path, 'test*', 
                                    self.dict_files[self.config.label_signal]))
